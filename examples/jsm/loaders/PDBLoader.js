@@ -114,11 +114,11 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 
 				verticesAtoms.push( x, y, z );
 
-				var r = atom[ 3 ][ 0 ] / 255;
-				var g = atom[ 3 ][ 1 ] / 255;
-				var b = atom[ 3 ][ 2 ] / 255;
+				// var r = atom[ 3 ][ 0 ] / 255;
+				// var g = atom[ 3 ][ 1 ] / 255;
+				// var b = atom[ 3 ][ 2 ] / 255;
 
-				colorsAtoms.push( r, g, b );
+				// colorsAtoms.push( r, g, b );
 
 			}
 
