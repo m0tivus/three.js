@@ -162,6 +162,8 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 
 		var x, y, z, index, e;
 
+		var nitrogenBase;
+
 		// parse
 
 		var lines = text.split( '\n' );
@@ -174,9 +176,9 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 				y = parseFloat( lines[ i ].substr( 38, 7 ) );
 				z = parseFloat( lines[ i ].substr( 46, 7 ) );
 				index = parseInt( lines[ i ].substr( 6, 5 ) ) - 1;
-				nitrogenBase = lines[i].substr(17,1)
-				if(nitrogenBase===" ") nitrogenBase = lines[i].substr(19,1)
-				
+				nitrogenBase = lines[ i ].substr( 17, 1 );
+				if ( nitrogenBase === " " ) nitrogenBase = lines[ i ].substr( 19, 1 );
+
 
 
 				e = trim( lines[ i ].substr( 76, 2 ) ).toLowerCase();
