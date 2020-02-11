@@ -161,6 +161,7 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 		var bhash = {};
 
 		var x, y, z, index, e;
+		var nitrogenBase;
 
 		// parse
 
@@ -173,7 +174,11 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 				x = parseFloat( lines[ i ].substr( 30, 7 ) );
 				y = parseFloat( lines[ i ].substr( 38, 7 ) );
 				z = parseFloat( lines[ i ].substr( 46, 7 ) );
-				index = parseInt( lines[ i ].substr( 6, 5 ) ) - 1;
+				index = parseInt( lines[ i ].substr( 6, 5 ) );
+				nitrogenBase = lines[i].substr(17,1)
+				if(nitrogenBase===" ") nitrogenBase = lines[i].substr(19,1)
+				
+
 
 				e = trim( lines[ i ].substr( 76, 2 ) ).toLowerCase();
 
@@ -183,7 +188,7 @@ PDBLoader.prototype = Object.assign( Object.create( Loader.prototype ), {
 
 				}
 
-				atoms[ index ] = [ x, y, z, CPK[ e ], capitalize( e ) ];
+				atoms[ index ] = [ x, y, z, nitrogenBase, CPK[ e ], capitalize( e ) ];
 
 				if ( histogram[ e ] === undefined ) {
 
